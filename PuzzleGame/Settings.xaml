@@ -1,0 +1,66 @@
+﻿<Window x:Class="ExamPuzzle.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Settings" Height="300" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0" Content="Easy" 
+               VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <RadioButton Name="Easy" Grid.Row="0" Grid.Column="1" Click="Easy_Click"
+                     VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Normal"
+               VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <RadioButton Name="Normal" Grid.Row="1" Grid.Column="1" Click="Normal_Click"
+                     VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Hard"
+               VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <RadioButton Name="Hard" Grid.Row="2" Grid.Column="1" Click="Hard_Click"
+                     VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="Custom"
+               VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <RadioButton Name="Custom" Grid.Row="3" Grid.Column="1" Click="Custom_Click"
+                     VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <Label Grid.Column="2" Grid.Row="0" Content="Columns"
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBox Grid.Column="3" Grid.Row="0" IsReadOnly="True" Text="{Binding ElementName=Slider1, 
+            Path=Value}"/>
+        <Slider Name ="Slider1" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Minimum="2" 
+                Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True"                   
+                Value="{Binding ColCount, RelativeSource={RelativeSource FindAncestor, 
+                AncestorType=Window}}"/>
+        <Label Grid.Column="2" Grid.Row="2" Content="Rows"
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBox Grid.Column="3" Grid.Row="2" IsReadOnly="True" Text="{Binding ElementName=Slider2, 
+            Path=Value}"/>
+        <Slider Name ="Slider2" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Minimum="2" 
+                Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True"
+                Value="{Binding RowCount, RelativeSource={RelativeSource FindAncestor, 
+                AncestorType=Window}}"/>
+        <Label Grid.Column="2" Grid.Row="4" Content="Shuffle rounds"
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBox Grid.Column="3" Grid.Row="4" IsReadOnly="True" Text="{Binding ElementName=Slider3, 
+            Path=Value}"/>
+        <Slider Name ="Slider3" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Minimum="5" 
+                Maximum="10000" TickFrequency="500" IsSnapToTickEnabled="True"
+                Value="{Binding ShuffleRounds, RelativeSource={RelativeSource FindAncestor, 
+                AncestorType=Window}}"/>
+        <Button Grid.Column="1" Grid.Row="6" Content="OK" Click="ButtonOK_Click"/>
+        <Button Grid.Column="2" Grid.Row="6" Content="Cancel" Click="ButtonCancel_Click"/>
+    </Grid>
+</Window>
